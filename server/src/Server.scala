@@ -18,7 +18,7 @@ s"""
 <html>
   <head>
     <meta charset="utf-8">
-    <title>temporary</title>
+    <title>Mill with Scala-js and server</title>
   </head>
   <body>
 
@@ -39,11 +39,6 @@ s"""
     implicit val executionContext = system.dispatcher
 
     val route =
-      path("hello") {
-        get {
-          complete(HttpEntity(ContentTypes.`text/html(UTF-8)`, "<h1>Say hello to akka-http</h1>"))
-        }
-      } ~
       path("index.html") {
         complete(HttpEntity(ContentTypes.`text/html(UTF-8)`, indexHTML))
       } ~
