@@ -11,6 +11,8 @@ object shared extends Module{
     def scalaVersion = "2.12.4"
     def scalaJSVersion = "0.6.22"
     def millSourcePath = super.millSourcePath / up
+
+    def platformSegment = "js"
   }
 }
 
@@ -23,5 +25,16 @@ object server extends ScalaModule{
 object client extends ScalaJSModule {
   def scalaVersion = "2.12.4"
   def scalaJSVersion = "0.6.22"
-  def moduleDeps = Seq(shared.js)
+  def moduleDeps : Seq[ScalaJSModule] = Seq(shared.js)
+
+  def platformSegment = "js"
+
+  def jsDepClasses = T{
+      Seq(shared.js.assembly())
+    }
+
+  def scalaJSLinkerClasspath = T{
+    super.scalaJSLinkerClasspath() ++ jsDepClasses()
+  }
+
 }
