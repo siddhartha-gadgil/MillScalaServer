@@ -1,4 +1,4 @@
-import mill._, scalalib._, scalajslib._
+import mill._, scalalib._, scalajslib._, define.Task
 import ammonite.ops._
 
 object shared extends Module{
@@ -29,12 +29,9 @@ object client extends ScalaJSModule {
 
   def platformSegment = "js"
 
-  def jsDepClasses = T{
-      Seq(shared.js.assembly())
-    }
-
-  def scalaJSLinkerClasspath = T{
-    super.scalaJSLinkerClasspath() ++ jsDepClasses()
+  def generatedSources = T.sources{
+    def deps = Task.traverse(moduleDeps)(_.sources)().flatten
+    super.generatedSources() ++ deps
   }
 
 }
