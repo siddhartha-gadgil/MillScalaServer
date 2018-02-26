@@ -39,7 +39,7 @@ s"""
     implicit val executionContext = system.dispatcher
 
     val route =
-      path("index.html") {
+      (pathSingleSlash |  path("index.html")) {
         complete(HttpEntity(ContentTypes.`text/html(UTF-8)`, indexHTML))
       } ~
       path("public" / Segment){ name =>

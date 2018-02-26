@@ -6,4 +6,4 @@ To try this, from the root run
 mill server.run
 ```
 
-and go to `http://localhost:8080/index.html`
+and go to `http://localhost:8080/index.html` or just `http://localhost:8080`
