@@ -50,4 +50,9 @@ object client extends ScalaJSModule {
     ivy"org.scala-js::scalajs-dom::0.9.4"
   )
 
+  def generatedSources = T.sources{
+    def deps = Task.traverse(moduleDeps)(_.sources)().flatten
+    super.generatedSources() ++ deps
+  }
+
 }
