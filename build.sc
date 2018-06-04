@@ -31,6 +31,8 @@ object server extends ScalaModule{
     def jsout = client.fastOpt().path / up
     (base ++ Seq(jsout)).map(PathRef(_))
   }
+
+  def mainClass = Some("server.Server")
 }
 
 object client extends ScalaJSModule {
