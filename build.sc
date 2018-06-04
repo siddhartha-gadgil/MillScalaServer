@@ -3,12 +3,12 @@ import ammonite.ops._
 
 object shared extends Module{
   object jvm extends ScalaModule{
-    def scalaVersion = "2.12.4"
+    def scalaVersion = "2.12.6"
     def millSourcePath = super.millSourcePath / up
   }
 
   object js extends ScalaJSModule {
-    def scalaVersion = "2.12.4"
+    def scalaVersion = "2.12.6"
     def scalaJSVersion = "0.6.22"
     def millSourcePath = super.millSourcePath / up
 
@@ -17,13 +17,13 @@ object shared extends Module{
 }
 
 object server extends ScalaModule{
-  def scalaVersion = "2.12.4"
+  def scalaVersion = "2.12.6"
 
   def moduleDeps = Seq(shared.jvm)
 
   def ivyDeps = Agg(
-    ivy"com.typesafe.akka::akka-http:10.1.0-RC2",
-    ivy"com.typesafe.akka::akka-stream:2.5.9"
+    ivy"com.typesafe.akka::akka-http:10.1.1",
+    ivy"com.typesafe.akka::akka-stream:2.5.11"
   )
 
   def resources = T.sources {
@@ -34,7 +34,7 @@ object server extends ScalaModule{
 }
 
 object client extends ScalaJSModule {
-  def scalaVersion = "2.12.4"
+  def scalaVersion = "2.12.6"
   def scalaJSVersion = "0.6.22"
   def moduleDeps : Seq[ScalaJSModule] = Seq(shared.js)
 
