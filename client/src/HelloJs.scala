@@ -1,18 +1,18 @@
 package client
-import scala.scalajs._
-import scala.scalajs.js.annotation._
 
+import scala.scalajs.js.annotation._
 import shared.Hello
 import org.scalajs.dom
-import org.scalajs.dom.html
+
+import org.scalajs.dom.raw.Element
 
 @JSExportTopLevel("HelloJS")
 object HelloJS {
   @JSExport
-  def helloJs = Hello.sayHello("js")
-  def blank = dom.document.getElementById("blank")
+  def helloJs: String = Hello.sayHello("scala-js")
+  def blank: Element = dom.document.querySelector("#blank")
 
-  val child = dom.document
+  val child: Element = dom.document
                  .createElement("div")
 
   child.textContent =

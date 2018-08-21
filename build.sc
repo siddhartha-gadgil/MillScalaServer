@@ -22,8 +22,7 @@ object server extends ScalaModule{
   def moduleDeps = Seq(shared.jvm)
 
   def ivyDeps = Agg(
-    ivy"com.typesafe.akka::akka-http:10.1.1",
-    ivy"com.typesafe.akka::akka-stream:2.5.11"
+    ivy"com.lihaoyi::cask:0.1.1"
   )
 
   def resources = T.sources {

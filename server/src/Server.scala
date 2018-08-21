@@ -2,55 +2,35 @@ package server
 
 import shared.Hello._
 
-import akka.actor.ActorSystem
-import akka.http.scaladsl.Http
-import akka.http.scaladsl.model._
-import akka.http.scaladsl.server.Directives._
-import akka.stream.ActorMaterializer
-import scala.io.StdIn
 
-object Server extends App{
-  println(sayHello("server"))
+object Server extends cask.MainRoutes{
 
-  val indexHTML =
-s"""
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title>Mill with Scala-js and server</title>
-  </head>
-  <body>
+  @cask.get("/")
+  def hello() = indexHTML
 
-    <p>${sayHello("jvm server")}</p>
-    <div id="blank">
+  @cask.staticResources("/public")
+  def staticResourceRoutes() = "."
 
-    </div>
-    <script type="text/javascript" src="/public/out.js">
+  initialize()
 
-    </script>
-  </body>
-</html>
-"""
-
-  implicit val system = ActorSystem("my-system")
-    implicit val materializer = ActorMaterializer()
-    // needed for the future flatMap/onComplete in the end
-    implicit val executionContext = system.dispatcher
-
-    val route =
-      (pathSingleSlash |  path("index.html")) {
-        complete(HttpEntity(ContentTypes.`text/html(UTF-8)`, indexHTML))
-      } ~
-      path("public" / Segment){ name =>
-        getFromResource(name.toString)
-      }
-
-    val bindingFuture = Http().bindAndHandle(route, "localhost", 8080)
-
-    println(s"Server online at http://localhost:8080/\nPress RETURN to stop...")
-    StdIn.readLine() // let it run until user presses return
-    bindingFuture
-      .flatMap(_.unbind()) // trigger unbinding from the port
-      .onComplete(_ => system.terminate()) // and shutdown when done
+  val indexHTML: String =
+    s"""
+       |<!DOCTYPE html>
+       |<html>
+       |  <head>
+       |    <meta charset="utf-8">
+       |    <title>Mill with Scala-js and server</title>
+       |  </head>
+       |  <body>
+       |
+       |    <p>${sayHello("jvm server")}</p>
+       |    <div id="blank">
+       |
+       |    </div>
+       |    <script type="text/javascript" src="/public/out.js">
+       |
+       |    </script>
+       |  </body>
+       |</html>
+     """.stripMargin
 }
