@@ -1,0 +1,35 @@
+<module type="JAVA_MODULE" version="4">
+    <component name="NewModuleRootManager">
+        <output url="file://$MODULE_DIR$/../out/server/compile/dest/classes"/>
+        <exclude-output/>
+        <content url="file://$MODULE_DIR$/../out/server/generatedSources/dest"/>
+        <content url="file://$MODULE_DIR$/../server">
+            <sourceFolder url="file://$MODULE_DIR$/../server/src" isTestSource="false"/>
+            <sourceFolder url="file://$MODULE_DIR$/../server/resources" type="java-resource"/>
+            <sourceFolder url="file://$MODULE_DIR$/../out/client/fastOpt/dest" type="java-resource"/>
+            <excludeFolder url="file://$MODULE_DIR$/../server/target"/>
+        </content>
+        <orderEntry type="inheritedJdk"/>
+        <orderEntry type="sourceFolder" forTests="false"/>
+        <orderEntry type="library" name="scala-sdk-2.12.6" level="application"/>
+        <orderEntry type="library" name="cask_2.12-0.1.1-sources.jar" level="project"/>
+        <orderEntry type="library" name="cask_2.12-0.1.1.jar" level="project"/>
+        <orderEntry type="library" name="jboss-logging-3.3.2.Final-sources.jar" level="project"/>
+        <orderEntry type="library" name="jboss-logging-3.3.2.Final.jar" level="project"/>
+        <orderEntry type="library" name="scala-library-2.12.6-sources.jar" level="project"/>
+        <orderEntry type="library" name="scala-library-2.12.6.jar" level="project"/>
+        <orderEntry type="library" name="scala-reflect-2.12.6-sources.jar" level="project"/>
+        <orderEntry type="library" name="scala-reflect-2.12.6.jar" level="project"/>
+        <orderEntry type="library" name="ujson_2.12-0.6.6-sources.jar" level="project"/>
+        <orderEntry type="library" name="ujson_2.12-0.6.6.jar" level="project"/>
+        <orderEntry type="library" name="undertow-core-2.0.11.Final-sources.jar" level="project"/>
+        <orderEntry type="library" name="undertow-core-2.0.11.Final.jar" level="project"/>
+        <orderEntry type="library" name="upickle_2.12-0.6.6-sources.jar" level="project"/>
+        <orderEntry type="library" name="upickle_2.12-0.6.6.jar" level="project"/>
+        <orderEntry type="library" name="xnio-api-3.3.8.Final-sources.jar" level="project"/>
+        <orderEntry type="library" name="xnio-api-3.3.8.Final.jar" level="project"/>
+        <orderEntry type="library" name="xnio-nio-3.3.8.Final-sources.jar" level="project"/>
+        <orderEntry type="library" name="xnio-nio-3.3.8.Final.jar" level="project"/>
+        <orderEntry type="module" module-name="shared.jvm" exported=""/>
+    </component>
+</module>
