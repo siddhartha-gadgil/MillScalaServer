@@ -6,13 +6,18 @@ import shared.Hello._
 object Server extends cask.MainRoutes{
 
   @cask.get("/")
-  def hello() = indexHTML
+  def hello(): String = Home.indexHTML
 
   @cask.staticResources("/public")
   def staticResourceRoutes() = "."
 
   initialize()
 
+
+}
+
+
+object Home{
   val indexHTML: String =
     s"""
        |<!DOCTYPE html>

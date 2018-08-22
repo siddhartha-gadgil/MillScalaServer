@@ -1,22 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <module type="JAVA_MODULE" version="4">
-    <component name="NewModuleRootManager">
-        <output url="file://$MODULE_DIR$/../out/client/compile/dest/classes"/>
-        <exclude-output/>
-        <content url="file://$MODULE_DIR$/../out/client/generatedSources/dest"/>
-        <content url="file://$MODULE_DIR$/../client">
-            <sourceFolder url="file://$MODULE_DIR$/../client/src" isTestSource="false"/>
-            <sourceFolder url="file://$MODULE_DIR$/../client/resources" type="java-resource"/>
-            <excludeFolder url="file://$MODULE_DIR$/../client/target"/>
-        </content>
-        <orderEntry type="inheritedJdk"/>
-        <orderEntry type="sourceFolder" forTests="false"/>
-        <orderEntry type="library" name="scala-sdk-2.12.6" level="application"/>
-        <orderEntry type="library" name="scala-library-2.12.6-sources.jar" level="project"/>
-        <orderEntry type="library" name="scala-library-2.12.6.jar" level="project"/>
-        <orderEntry type="library" name="scalajs-dom_sjs0.6_2.12-0.9.4-sources.jar" level="project"/>
-        <orderEntry type="library" name="scalajs-dom_sjs0.6_2.12-0.9.4.jar" level="project"/>
-        <orderEntry type="library" name="scalajs-library_2.12-0.6.22-sources.jar" level="project"/>
-        <orderEntry type="library" name="scalajs-library_2.12-0.6.22.jar" level="project"/>
-        <orderEntry type="module" module-name="shared.js" exported=""/>
-    </component>
+  <component name="NewModuleRootManager">
+    <output url="file://$MODULE_DIR$/../out/client/compile/dest/classes" />
+    <exclude-output />
+    <content url="file://$MODULE_DIR$/../client">
+      <sourceFolder url="file://$MODULE_DIR$/../client/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/../client/resources" type="java-resource" />
+      <excludeFolder url="file://$MODULE_DIR$/../client/target" />
+    </content>
+    <content url="file://$MODULE_DIR$/../out/client/generatedSources/dest" />
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="scala-sdk-2.12.6" level="application" />
+    <orderEntry type="library" name="scala-library-2.12.6-sources.jar" level="project" />
+    <orderEntry type="library" name="scala-library-2.12.6.jar" level="project" />
+    <orderEntry type="library" name="scalajs-dom_sjs0.6_2.12-0.9.4-sources.jar" level="project" />
+    <orderEntry type="library" name="scalajs-dom_sjs0.6_2.12-0.9.4.jar" level="project" />
+    <orderEntry type="library" name="scalajs-library_2.12-0.6.22-sources.jar" level="project" />
+    <orderEntry type="library" name="scalajs-library_2.12-0.6.22.jar" level="project" />
+    <orderEntry type="module" module-name="shared.js" exported="" />
+  </component>
 </module>
