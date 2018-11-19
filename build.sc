@@ -22,7 +22,7 @@ object server extends ScalaModule{
   def moduleDeps = Seq(shared.jvm)
 
   def ivyDeps = Agg(
-    ivy"com.lihaoyi::cask:0.1.6"
+    ivy"com.lihaoyi::cask:0.1.9"
   )
 
   def resources = T.sources {
@@ -33,6 +33,27 @@ object server extends ScalaModule{
 
   def mainClass = Some("server.Server")
 }
+
+object outerserver extends ScalaModule{
+  def scalaVersion = "2.12.6"
+
+  def moduleDeps = Seq(shared.jvm, server)
+
+  def ivyDeps = Agg(
+    ivy"com.lihaoyi::cask:0.1.9"
+  )
+
+  def resources = T.sources {
+    def base : Seq[Path] = super.resources().map(_.path)
+    def jsout = client.fastOpt().path / up
+    (base ++ Seq(jsout)).map(PathRef(_))
+  }
+
+  def mainClass = Some("server.OuterServer")
+}
+
+
+
 
 object client extends ScalaJSModule {
   def scalaVersion = "2.12.6"

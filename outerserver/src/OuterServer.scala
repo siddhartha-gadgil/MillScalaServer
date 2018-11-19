@@ -10,15 +10,15 @@ import io.undertow.websockets.spi.WebSocketHttpExchange
 import scala.concurrent._
 import scala.concurrent.ExecutionContext.Implicits.global
 
-object SubServer extends cask.Routes{
+object OuterSubServer extends cask.Routes{
 
-  @cask.get("/")
+  @cask.get("/outer.html")
   def hello(): String = Home.indexHTML
 
-  @cask.staticResources("/public")
-  def staticResourceRoutes() = "."
-
-  @cask.websocket("/connect")
+  // @cask.staticResources("/public")
+  // def staticResourceRoutes() = "."
+  //
+  @cask.websocket("/outer/connect")
   def showUserProfile(): cask.WebsocketResult = {
     new WebSocketConnectionCallback() {
       override def onConnect(exchange: WebSocketHttpExchange, channel: WebSocketChannel): Unit = {
@@ -43,7 +43,7 @@ object SubServer extends cask.Routes{
 
 }
 
-object Server extends cask.Main(SubServer)
+object OuterServer extends cask.Main(OuterSubServer, SubServer)
 
 
 object Home{
