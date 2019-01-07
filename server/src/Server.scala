@@ -10,7 +10,7 @@ import io.undertow.websockets.spi.WebSocketHttpExchange
 import scala.concurrent._
 import scala.concurrent.ExecutionContext.Implicits.global
 
-object SubServer extends cask.Routes{
+object Server extends cask.MainRoutes{
 
   @cask.get("/")
   def hello(): String = Home.indexHTML
@@ -42,8 +42,6 @@ object SubServer extends cask.Routes{
   initialize()
 
 }
-
-object Server extends cask.Main(SubServer)
 
 
 object Home{
