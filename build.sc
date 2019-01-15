@@ -22,7 +22,8 @@ object server extends ScalaModule{
   def moduleDeps = Seq(shared.jvm)
 
   def ivyDeps = Agg(
-    ivy"com.lihaoyi::cask:0.1.9"
+    ivy"com.lihaoyi::cask:0.1.9",
+    ivy"org.scalameta::mdoc:1.2.7"
   )
 
   def resources = T.sources {

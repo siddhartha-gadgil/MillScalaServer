@@ -9,8 +9,12 @@ import io.undertow.websockets.spi.WebSocketHttpExchange
 
 import scala.concurrent._
 import scala.concurrent.ExecutionContext.Implicits.global
+import java.nio.file.{Path, Paths}
 
 object Server extends cask.MainRoutes{
+
+  val settings = mdoc.MainSettings().withIn(Paths.get("tuts"))
+  val exitCode = mdoc.Main.process(settings)
 
   @cask.get("/")
   def hello(): String = Home.indexHTML
